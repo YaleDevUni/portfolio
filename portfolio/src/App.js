@@ -1,6 +1,8 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import AnimatedBall from "./bouncing";
+
 function App() {
   const [mousePosition, setMousePosition] = useState({
     x: 0,
@@ -38,10 +40,9 @@ function App() {
       mixBlendMode: "difference",
     },
     button: {
-      height: 150,
-      width: 150,
-      x: mousePosition.x - 75,
-      y: mousePosition.y - 75,
+      x: mousePosition.x - 16,
+      y: mousePosition.y - 16,
+      mixBlendMode: "difference",
       backgroundColor: "red",
     },
   };
@@ -51,17 +52,17 @@ function App() {
   const buttonEnter = () => setCursorVariant("button");
   const buttonLeave = () => setCursorVariant("default");
 
-  function textBlenderDiv(text) {
-    return (
-      <div onMouseEnter={textEnter} onMouseLeave={textLeave}>
-        {text}
-      </div>
-    );
-  }
+  // function textBlenderDiv(text) {
+  //   return (
+  //     <div onMouseEnter={textEnter} onMouseLeave={textLeave}>
+  //       {text}
+  //     </div>
+  //   );
+  // }
 
   return (
-    <div className="App">
-      <nav className="grid grid-cols-10 grid-rows-1 my-2 ">
+    <div className="App cursor-none">
+      <nav className="grid grid-cols-10 grid-rows-1 my-2 mb-10 ">
         <div className=" col-span-7">
           <div className=" text-left mx-4">Yeil's Portfolios</div>
         </div>
@@ -69,27 +70,47 @@ function App() {
         <div>Resume</div>
         <div>Contact</div>
       </nav>
+
       <div
+        className="animated-box in"
         // onMouseEnter={textEnter}
         // onMouseLeave={textLeave}
-        className=" cursor-none"
       >
-        {textBlenderDiv("Hi,")}
-        <div>Hi,</div>
-        <div>I'm Yeil,</div>
-        <div>I'm software engineer, and fullstack web developer</div>
-        <button onMouseEnter={buttonEnter} onMouseLeave={buttonLeave}>
+        {/* <div className=" rainbow-block">df</div> */}
+        {/* <div className=" p-6 my-[30vh] mx-[5vh]"> */}
+        <div className="">
+          <div
+            className=" text-7xl"
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+          >
+            Hello, I'm Yeil,
+          </div>
+          <div
+            className=" text-5xl"
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+          >
+            <br />
+            I'm software engineer, and fullstack web developer
+          </div>
+        </div>
+        {/* <button onMouseEnter={buttonEnter} onMouseLeave={buttonLeave}>
           hey
         </button>
         <div>Languages: Python C C++ Java Dart Javascript Typescript </div>
         <div>Frameworks Frontend:HTML CSS React.js tailwindcss Flutter</div>
         <div>Frameworks Backend: Node.js Django</div>
-        <div>Database: MySQL MongoDB</div>
+        <div>Database: MySQL MongoDB</div> */}
+
         <motion.div
           className="cursor"
           variants={variants}
           animate={cursorVariant}
         />
+      </div>
+      <div className="h-96">
+        <AnimatedBall />
       </div>
     </div>
   );
