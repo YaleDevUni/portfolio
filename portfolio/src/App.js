@@ -1,7 +1,8 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import AnimatedBall from "./bouncing";
+import { ReactComponent as DjangoIcon } from "./logos/django.svg";
+import { ReactComponent as ReactIcon } from "./logos/react_logo.svg";
 
 function App() {
   const [mousePosition, setMousePosition] = useState({
@@ -109,9 +110,9 @@ function App() {
           animate={cursorVariant}
         />
       </div>
-      <div className="h-96">
-        <AnimatedBall />
-      </div>
+      <DjangoIcon onMouseEnter={textEnter} onMouseLeave={textLeave} />
+
+      <ReactIcon className=" w-1/4" />
     </div>
   );
 }
