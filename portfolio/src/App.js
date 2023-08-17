@@ -1,8 +1,22 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ReactComponent as DjangoIcon } from "./logos/django.svg";
-import { ReactComponent as ReactIcon } from "./logos/react_logo.svg";
+import { ReactComponent as DjangoIcon } from "./logos/Django.svg";
+import { ReactComponent as ReactIcon } from "./logos/React_logo.svg";
+import { ReactComponent as PythonIcon } from "./logos/Python_logo.svg";
+import { ReactComponent as CIcon } from "./logos/C_logo.svg";
+import { ReactComponent as CSSIcon } from "./logos/CSS_logo.svg";
+import { ReactComponent as HTMLIcon } from "./logos/HTML_logo.svg";
+import { ReactComponent as JavaIcon } from "./logos/Java_logo.svg";
+import { ReactComponent as DartIcon } from "./logos/Dart_logo.svg";
+import { ReactComponent as JavascriptIcon } from "./logos/Javascript_logo.svg";
+import { ReactComponent as TypescriptIcon } from "./logos/Typescript_logo.svg";
+import { ReactComponent as TailwindIcon } from "./logos/Tailwind_logo.svg";
+import { ReactComponent as FlutterIcon } from "./logos/Flutter_logo.svg";
+import { ReactComponent as NodeIcon } from "./logos/Node_logo.svg";
+import { ReactComponent as MySQLIcon } from "./logos/MySql_logo.svg";
+import { ReactComponent as MongoDBIcon } from "./logos/MongoDB_logo.svg";
+import { ReactComponent as WebGlIcon } from "./logos/WebGl_logo.svg";
 
 function App() {
   const [mousePosition, setMousePosition] = useState({
@@ -72,13 +86,7 @@ function App() {
         <div>Contact</div>
       </nav>
 
-      <div
-        className="animated-box in"
-        // onMouseEnter={textEnter}
-        // onMouseLeave={textLeave}
-      >
-        {/* <div className=" rainbow-block">df</div> */}
-        {/* <div className=" p-6 my-[30vh] mx-[5vh]"> */}
+      <div className="animated-box in">
         <div className="">
           <div
             className=" text-7xl"
@@ -96,6 +104,7 @@ function App() {
             I'm software engineer, and fullstack web developer
           </div>
         </div>
+
         {/* <button onMouseEnter={buttonEnter} onMouseLeave={buttonLeave}>
           hey
         </button>
@@ -103,16 +112,19 @@ function App() {
         <div>Frameworks Frontend:HTML CSS React.js tailwindcss Flutter</div>
         <div>Frameworks Backend: Node.js Django</div>
         <div>Database: MySQL MongoDB</div> */}
-
-        <motion.div
-          className="cursor"
-          variants={variants}
-          animate={cursorVariant}
-        />
       </div>
-      <DjangoIcon onMouseEnter={textEnter} onMouseLeave={textLeave} />
-
-      <ReactIcon className=" w-1/4" />
+      <div className="flex items-center mx-[10%] bg-white">
+        <div className=" text-2xl text-black">Programming Languages : </div>
+        <JavaIcon className=" w-32 h-32" />
+        <CIcon className="w-32 h-32 fill-white" />
+        <TypescriptIcon className="w-32 h-32" />
+      </div>
+      {/* Apply Effect on cursor */}
+      <motion.div
+        className="cursor"
+        variants={variants}
+        animate={cursorVariant}
+      />
     </div>
   );
 }
