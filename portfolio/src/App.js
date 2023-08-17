@@ -113,11 +113,17 @@ function App() {
         <div>Frameworks Backend: Node.js Django</div>
         <div>Database: MySQL MongoDB</div> */}
       </div>
-      <div className="flex items-center mx-[10%] bg-white">
-        <div className=" text-2xl text-black">Programming Languages : </div>
-        <JavaIcon className=" w-32 h-32" />
-        <CIcon className="w-32 h-32 fill-white" />
-        <TypescriptIcon className="w-32 h-32" />
+      <div className="grid grid-rows-1 grid-cols-6 h-40 mx-[10%]  items-center bg-white">
+        <div className=" text-2xl text-black col-span-1">
+          Programming Languages :{" "}
+        </div>
+        <div className="col-span-5 grid grid-cols-6 h-full gap-4">
+          <JavaIcon className=" h-full w-full" />
+          <CIcon className="h-full w-full fill-white" />
+          <TypescriptIcon className="h-full w-full" />
+          <JavascriptIcon className="h-full w-full" />
+          <DartIcon className="h-full w-full" />
+        </div>
       </div>
       {/* Apply Effect on cursor */}
       <motion.div
