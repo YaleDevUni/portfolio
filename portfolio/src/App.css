@@ -20,11 +20,41 @@
   pointer-events: none;
 }
 
+.cursor2 {
+  background-color: white;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.cursor3 {
+  background-color: white;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.cursor4 {
+  background-color: white;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
 .animated-box {
   /* font-family: 'Lato'; */
   color: #ffffff;
   padding: 30px;
-  margin: 10%;
+  margin: 5% 20% 5% 20%;
   text-align: center;
   border-radius: 4px;
 }

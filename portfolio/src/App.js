@@ -47,12 +47,13 @@ function App() {
       mixBlendMode: "difference",
     },
     text: {
-      height: 150,
-      width: 150,
-      x: mousePosition.x - 75,
-      y: mousePosition.y - 75,
+      // height: 150,
+      // width: 150,
+      x: mousePosition.x - 16,
+      y: mousePosition.y - 16,
       backgroundColor: "white",
       mixBlendMode: "difference",
+      scale: 5,
     },
     button: {
       x: mousePosition.x - 16,
@@ -76,7 +77,7 @@ function App() {
   // }
 
   return (
-    <div className="App cursor-none">
+    <div className="App ">
       <nav className="grid grid-cols-10 grid-rows-1 my-2 mb-10 ">
         <div className=" col-span-7">
           <div className=" text-left mx-4">Yeil's Portfolios</div>
@@ -85,7 +86,7 @@ function App() {
         <div>Resume</div>
         <div>Contact</div>
       </nav>
-
+      {/* Field of Greeting */}
       <div className="animated-box in">
         <div className="">
           <div
@@ -104,25 +105,90 @@ function App() {
             I'm software engineer, and fullstack web developer
           </div>
         </div>
-
-        {/* <button onMouseEnter={buttonEnter} onMouseLeave={buttonLeave}>
-          hey
-        </button>
-        <div>Languages: Python C C++ Java Dart Javascript Typescript </div>
-        <div>Frameworks Frontend:HTML CSS React.js tailwindcss Flutter</div>
-        <div>Frameworks Backend: Node.js Django</div>
-        <div>Database: MySQL MongoDB</div> */}
       </div>
-      <div className="grid grid-rows-1 grid-cols-6 h-40 mx-[10%]  items-center bg-white">
-        <div className=" text-2xl text-black col-span-1">
-          Programming Languages :{" "}
+      {/* Field of Skills */}
+      <div className="grid grid-rows-4 grid-cols-6 h-64 mx-[20%] items-center text-center gap-4 ">
+        <div className=" text-2xl col-span-6">Languages</div>
+        <div className="col-span-6 grid grid-cols-8 h-full">
+          <HTMLIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full"
+          />
+          <CSSIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full"
+          />
+          <JavascriptIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full"
+          />
+          <TypescriptIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full"
+          />
+          <JavaIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className=" h-full w-full"
+          />
+          <CIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full fill-white"
+          />
+          <PythonIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full"
+          />
+          <DartIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full"
+          />
         </div>
-        <div className="col-span-5 grid grid-cols-6 h-full gap-4">
-          <JavaIcon className=" h-full w-full" />
-          <CIcon className="h-full w-full fill-white" />
-          <TypescriptIcon className="h-full w-full" />
-          <JavascriptIcon className="h-full w-full" />
-          <DartIcon className="h-full w-full" />
+        <div className=" text-2xl col-span-6">Frameworks and DB</div>
+        <div className="col-span-6 grid grid-cols-8 h-full">
+          <ReactIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full"
+          />
+          <TailwindIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full"
+          />
+          <NodeIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full"
+          />
+          <DjangoIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full fill-white"
+          />
+          <FlutterIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full"
+          />
+          <DjangoIcon className="h-full w-full" />
+          <MySQLIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full"
+          />
+          <MongoDBIcon
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            className="h-full w-full"
+          />
         </div>
       </div>
       {/* Apply Effect on cursor */}
@@ -130,6 +196,51 @@ function App() {
         className="cursor"
         variants={variants}
         animate={cursorVariant}
+        transition={{
+          ease: "linear",
+          duration: 0,
+          scale: { duration: 0.2 },
+        }}
+      />
+      <motion.div
+        className="cursor"
+        variants={variants}
+        animate={cursorVariant}
+        transition={{
+          ease: "linear",
+          duration: 0.15,
+          scale: { duration: 0.35 },
+        }}
+      />
+      <motion.div
+        className="cursor"
+        variants={variants}
+        animate={cursorVariant}
+        transition={{
+          ease: "linear",
+          duration: 0.3,
+          scale: { duration: 0.5 },
+        }}
+      />
+      <motion.div
+        className="cursor"
+        variants={variants}
+        animate={cursorVariant}
+        transition={{
+          ease: "linear",
+          duration: 0.45,
+          scale: { duration: 0.65 },
+        }}
+      />
+      <motion.div
+        className="cursor"
+        variants={variants}
+        animate={cursorVariant}
+        transition={{
+          ease: "linear",
+          duration: 0.6,
+          scale: { duration: 0.8 },
+        }}
       />
     </div>
   );
