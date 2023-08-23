@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import { ReactComponent as DjangoIcon } from "./logos/Django.svg";
 import { ReactComponent as ReactIcon } from "./logos/React_logo.svg";
 import { ReactComponent as PythonIcon } from "./logos/Python_logo.svg";
@@ -23,6 +23,7 @@ function App() {
     x: 0,
     y: 0,
   });
+
   const [cursorVariant, setCursorVariant] = useState("default");
 
   useEffect(() => {
@@ -31,6 +32,8 @@ function App() {
         x: e.clientX,
         y: e.clientY,
       });
+
+      // console.log("Cursor X:", e.clientX, "Cursor Y:", e.clientY);
     };
 
     window.addEventListener("mousemove", mouseMove);
@@ -51,7 +54,7 @@ function App() {
       // width: 150,
       x: mousePosition.x - 16,
       y: mousePosition.y - 16,
-      backgroundColor: "white",
+      // backgroundColor: "white",
       mixBlendMode: "difference",
       scale: 5,
     },
@@ -75,6 +78,12 @@ function App() {
   //     </div>
   //   );
   // }
+  const rotationDegreeY = Math.min(
+    Math.max((mousePosition.x - 800) * 0.2, -45),
+    45
+  );
+  const rotationDegreeX =
+    Math.min(Math.max((mousePosition.y - 500) * 0.2, -45), 45) * -1;
 
   return (
     <div className="App ">
@@ -110,21 +119,53 @@ function App() {
       <div className="grid grid-rows-4 grid-cols-6 h-64 mx-[20%] items-center text-center gap-4 ">
         <div className=" text-2xl col-span-6">Languages</div>
         <div className="col-span-6 grid grid-cols-8 h-full">
-          <HTMLIcon
+          <motion.svg
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`, // Adjust the rotation factor as needed
+            }}
+            className="h-full w-full"
+          >
+            <HTMLIcon />
+          </motion.svg>
+
+          <motion.svg
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`, // Adjust the rotation factor as needed
+            }}
+            className="h-full w-full"
+          >
+            <CSSIcon />
+          </motion.svg>
+          {/* <CSSIcon
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
             className="h-full w-full"
-          />
-          <CSSIcon
+          /> */}
+          <motion.svg
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`, // Adjust the rotation factor as needed
+            }}
+            className="h-full w-full"
+          >
+            <JavascriptIcon />
+          </motion.svg>
+          {/* <JavascriptIcon
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
             className="h-full w-full"
-          />
-          <JavascriptIcon
-            onMouseEnter={textEnter}
-            onMouseLeave={textLeave}
-            className="h-full w-full"
-          />
+          /> */}
           <TypescriptIcon
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
@@ -191,6 +232,9 @@ function App() {
           />
         </div>
       </div>
+      <hr class=" my-32 h-0.5 border-t-0 bg-white opacity-100 mx-[20%] pulse-divider" />
+      <hr class=" my-32 h-0.5 border-t-0 bg-white opacity-100 mx-[30%] pulse-divider2 " />
+      <hr class=" my-32 h-0.5 border-t-0 bg-white opacity-100 mx-[40%] pulse-divider3" />
       {/* Apply Effect on cursor */}
       <motion.div
         className="cursor"
@@ -200,46 +244,6 @@ function App() {
           ease: "linear",
           duration: 0,
           scale: { duration: 0.2 },
-        }}
-      />
-      <motion.div
-        className="cursor"
-        variants={variants}
-        animate={cursorVariant}
-        transition={{
-          ease: "linear",
-          duration: 0.15,
-          scale: { duration: 0.35 },
-        }}
-      />
-      <motion.div
-        className="cursor"
-        variants={variants}
-        animate={cursorVariant}
-        transition={{
-          ease: "linear",
-          duration: 0.3,
-          scale: { duration: 0.5 },
-        }}
-      />
-      <motion.div
-        className="cursor"
-        variants={variants}
-        animate={cursorVariant}
-        transition={{
-          ease: "linear",
-          duration: 0.45,
-          scale: { duration: 0.65 },
-        }}
-      />
-      <motion.div
-        className="cursor"
-        variants={variants}
-        animate={cursorVariant}
-        transition={{
-          ease: "linear",
-          duration: 0.6,
-          scale: { duration: 0.8 },
         }}
       />
     </div>
