@@ -378,8 +378,8 @@ function App() {
             <StackButton text="Django" />
             <StackButton text="MySql" />
             <StackButton text="Tailwind" />
-            <StackButton text="React" />
             <StackButton text="AWS EC2" />
+            <StackButton text="SSR" />
           </div>
           <div className="flex justify-end ">
             <DemoButton
