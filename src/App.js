@@ -113,7 +113,7 @@ function App() {
     ? 0
     : Math.min(Math.max((mousePosition.y - 500) * 0.2, -45), 45) * -1;
   return (
-    <div className="App  cursor-none">
+    <div className="App  md:cursor-none">
       <nav className="grid grid-cols-10 grid-rows-1 my-4 mb-10 font-bold ">
         <div className=" col-span-8">
           <div className=" text-left mx-4">Yeil's Portfolios</div>
@@ -137,14 +137,14 @@ function App() {
       <div className="animated-box in">
         <div className="">
           <div
-            className=" text-7xl"
+            className=" text-2xl md:text-7xl"
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
           >
             Hello, I'm Yeil,
           </div>
           <div
-            className=" text-5xl"
+            className=" md:text-5xl"
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
           >
@@ -161,7 +161,7 @@ function App() {
         style={{ perspective: "1000px" }}
       ></motion.div>
       {/* Field of Skills */}
-      <div className="grid grid-rows-5 grid-cols-6 h-72 mx-[20%] items-center text-center gap-4 ">
+      <div className="mx-0 grid grid-rows-5 grid-cols-6 h-72  items-center text-center gap-4 md:mx-[20%]">
         <div className=" text-2xl col-span-6">Languages</div>
         <div className="col-span-6 grid grid-cols-8 h-full">
           <motion.svg
@@ -360,9 +360,9 @@ function App() {
           </motion.svg>
         </div>
       </div>
-      <hr class=" my-32 h-0.5 border-t-0 bg-white opacity-100 mx-[20%] pulse-divider" />
-      <hr class=" my-32 h-0.5 border-t-0 bg-white opacity-100 mx-[30%] pulse-divider2 " />
-      <hr class=" my-32 h-0.5 border-t-0 bg-white opacity-100 mx-[40%] pulse-divider3" />
+      <hr class=" my-12  h-0.5 border-t-0 bg-white opacity-100 mx-[20%] pulse-divider md:my-32" />
+      <hr class=" my-12 h-0.5 border-t-0 bg-white opacity-100 mx-[30%] pulse-divider2 md:my-32 " />
+      <hr class=" my-12 h-0.5 border-t-0 bg-white opacity-100 mx-[40%] pulse-divider3 md:my-32" />
       <div className=" text-2xl text-white text-center">Projects</div>
       <div className="mx-[20%] my-8 bg-zinc-900  rounded-md">
         {" "}
@@ -374,7 +374,7 @@ function App() {
             API, and performing visualization and analysis of the relationship
             between UV index and temperature.
           </div>
-          <div className="flex flex-row my-2">
+          <div className="flex flex-wrap gap-2">
             <StackButton text="Django" />
             <StackButton text="MySql" />
             <StackButton text="Tailwind" />
@@ -406,7 +406,7 @@ function App() {
             User interacitve portfolio website built with React and Tailwind.
             Mounted framer motion for animation effect.
           </div>
-          <div className="flex flex-row my-2">
+          <div className="flex flex-wrap gap-2">
             <StackButton text="React" />
             <StackButton text="Tailwind" />
             <StackButton text="Framer Motion" />
@@ -421,17 +421,20 @@ function App() {
         </div>
       </div>
       <Footer />
-      {/* Apply Effect on cursor */}
-      <motion.div
-        className="cursor"
-        variants={variants}
-        animate={cursorVariant}
-        transition={{
-          ease: "linear",
-          duration: 0,
-          scale: { duration: 0.2 },
-        }}
-      ></motion.div>
+      {isReduced ? (
+        <div />
+      ) : (
+        <motion.div
+          className="cursor"
+          variants={variants}
+          animate={cursorVariant}
+          transition={{
+            ease: "linear",
+            duration: 0,
+            scale: { duration: 0.2 },
+          }}
+        />
+      )}
     </div>
   );
 }
