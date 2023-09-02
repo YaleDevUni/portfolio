@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url(./fonts/Ubuntu/Ubuntu-Medium.ttf) format("truetype");
+}
+.App {
+  background-color: black;
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu";
+
+}
+
+.title {
+  font-size: 10rem;
+}
+
+.cursor {
+  background-color: white;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.cursor2 {
+  background-color: white;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.cursor3 {
+  background-color: white;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.cursor4 {
+  background-color: white;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.animated-box {
+  /* font-family: 'Lato'; */
+  color: #ffffff;
+  padding: 30px;
+  margin: 5% 20% 5% 20%;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.animated-box h1 {
+  font-weight: 200;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.animated-box p {
+  font-weight: 200;
+}
+
+/* The animation starts here */
+.animated-box {
+  position: relative;
+}
+
+.animated-box:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 4px;
+  background: linear-gradient(145deg, black,white,black,
+    white,black,
+      white,black,
+        white);
+  background-size: 300% 300%;
+  clip-path: polygon(0% 100%, 3px 100%, 3px 3px, calc(100% - 3px) 3px, calc(100% - 3px) calc(100% - 3px), 3px calc(100% - 3px), 3px 100%, 100% 100%, 100% 0%, 0% 0%);
+}
+
+.animated-box.in:after {
+  animation: frame-enter 1s forwards ease-in-out reverse, gradient-animation 4s ease-in-out infinite;
+}
+
+/* motion */
+@keyframes gradient-animation {
+  0% {
+    background-position: 15% 0%;
+  }
+
+  50% {
+    background-position: 85% 100%;
+  }
+
+  100% {
+    background-position: 15% 0%;
+  }
+}
+
+@keyframes frame-enter {
+  0% {
+    clip-path: polygon(0% 100%, 3px 100%, 3px 3px, calc(100% - 3px) 3px, calc(100% - 3px) calc(100% - 3px), 3px calc(100% - 3px), 3px 100%, 100% 100%, 100% 0%, 0% 0%);
+  }
+
+  25% {
+    clip-path: polygon(0% 100%, 3px 100%, 3px 3px, calc(100% - 3px) 3px, calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) 100%, 100% 100%, 100% 0%, 0% 0%);
+  }
+
+  50% {
+    clip-path: polygon(0% 100%, 3px 100%, 3px 3px, calc(100% - 3px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 3px, 100% 0%, 0% 0%);
+  }
+
+  75% {
+    -webkit-clip-path: polygon(0% 100%, 3px 100%, 3px 3px, 3px 3px, 3px 3px, 3px 3px, 3px 3px, 3px 3px, 3px 0%, 0% 0%);
+  }
+
+  100% {
+    -webkit-clip-path: polygon(0% 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 0% 100%);
+  }
+}
+.pulse-divider{
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.pulse-divider2 {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 200ms;
+}
+.pulse-divider3 {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 400ms;
+}
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .01;
+  }
+}
