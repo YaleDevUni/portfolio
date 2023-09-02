@@ -403,7 +403,7 @@ function App() {
           ></img>{" "}
           <div className=" text-white text-xl my-4">
             User interacitve portfolio website built with React and Tailwind.
-            Monted framer motion for animation effect.
+            Mounted framer motion for animation effect.
           </div>
           <div className="flex flex-row my-2">
             <StackButton text="React" />
@@ -434,7 +434,3 @@ function App() {
 }
 
 export default App;
-
-// <div className="active-scale cursor-none">
-
-// </div>
