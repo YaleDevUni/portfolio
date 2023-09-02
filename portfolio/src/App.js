@@ -1,6 +1,8 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import StackButton from "./components/stack_button";
+import DemoButton from "./components/demo_button";
 import { ReactComponent as DjangoIcon } from "./logos/Django.svg";
 import { ReactComponent as ReactIcon } from "./logos/React_logo.svg";
 import { ReactComponent as PythonIcon } from "./logos/Python_logo.svg";
@@ -19,6 +21,28 @@ import { ReactComponent as MongoDBIcon } from "./logos/MongoDB_logo.svg";
 import { ReactComponent as WebGlIcon } from "./logos/WebGl_logo.svg";
 
 function App() {
+  // Initialize state to store the current window width
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // Define a function to update the window width when it changes
+  const handleWindowResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  // Set up an effect to add and remove the event listener
+  useEffect(() => {
+    // Add the event listener when the component mounts
+    window.addEventListener("resize", handleWindowResize);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []); // The empty dependency array means this effect runs once, similar to componentDidMount
+
+  // Check if the window size is reduced (you can define your own threshold)
+  const isReduced = windowWidth < 768;
+  console.log(windowWidth);
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0,
@@ -67,7 +91,10 @@ function App() {
   };
   const textEnter = () => setCursorVariant("text");
   const textLeave = () => setCursorVariant("default");
-
+  const tiltVariants = {
+    initial: { rotateX: 0, rotateY: 0 },
+    tilt: { rotateX: 0, rotateY: 100 },
+  };
   const buttonEnter = () => setCursorVariant("button");
   const buttonLeave = () => setCursorVariant("default");
 
@@ -78,22 +105,32 @@ function App() {
   //     </div>
   //   );
   // }
-  const rotationDegreeY = Math.min(
-    Math.max((mousePosition.x - 800) * 0.2, -45),
-    45
-  );
-  const rotationDegreeX =
-    Math.min(Math.max((mousePosition.y - 500) * 0.2, -45), 45) * -1;
-
+  const rotationDegreeY = isReduced
+    ? 0
+    : Math.min(Math.max((mousePosition.x - windowWidth / 2) * 0.2, -45), 45);
+  const rotationDegreeX = isReduced
+    ? 0
+    : Math.min(Math.max((mousePosition.y - 500) * 0.2, -45), 45) * -1;
   return (
-    <div className="App ">
-      <nav className="grid grid-cols-10 grid-rows-1 my-2 mb-10 ">
-        <div className=" col-span-7">
+    <div className="App  cursor-none">
+      <nav className="grid grid-cols-10 grid-rows-1 my-4 mb-10 font-bold ">
+        <div className=" col-span-8">
           <div className=" text-left mx-4">Yeil's Portfolios</div>
         </div>
-        <div>Github</div>
-        <div>Resume</div>
-        <div>Contact</div>
+        <button
+          onClick={() => {
+            window.open("https://github.com/YaleDevUni");
+          }}
+        >
+          Github
+        </button>
+        <button
+          onClick={() => {
+            window.open("https://pdfhost.io/v/md1o7UXF4_Resume_AxiomZen");
+          }}
+        >
+          Resume
+        </button>
       </nav>
       {/* Field of Greeting */}
       <div className="animated-box in">
@@ -115,8 +152,15 @@ function App() {
           </div>
         </div>
       </div>
+      <motion.div
+        className="tilt-container"
+        initial="initial"
+        whileHover="tilt"
+        variants={tiltVariants}
+        style={{ perspective: "1000px" }}
+      ></motion.div>
       {/* Field of Skills */}
-      <div className="grid grid-rows-4 grid-cols-6 h-64 mx-[20%] items-center text-center gap-4 ">
+      <div className="grid grid-rows-5 grid-cols-6 h-72 mx-[20%] items-center text-center gap-4 ">
         <div className=" text-2xl col-span-6">Languages</div>
         <div className="col-span-6 grid grid-cols-8 h-full">
           <motion.svg
@@ -138,7 +182,7 @@ function App() {
             style={{
               // Set rotation based on cursor position
               rotateY: `${rotationDegreeY}deg`,
-              rotateX: `${rotationDegreeX}deg`, // Adjust the rotation factor as needed
+              rotateX: `${rotationDegreeX}deg`,
             }}
             className="h-full w-full"
           >
@@ -155,86 +199,225 @@ function App() {
             style={{
               // Set rotation based on cursor position
               rotateY: `${rotationDegreeY}deg`,
-              rotateX: `${rotationDegreeX}deg`, // Adjust the rotation factor as needed
+              rotateX: `${rotationDegreeX}deg`,
             }}
             className="h-full w-full"
           >
             <JavascriptIcon />
           </motion.svg>
-          {/* <JavascriptIcon
+
+          <motion.svg
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
             className="h-full w-full"
-          /> */}
-          <TypescriptIcon
+          >
+            <TypescriptIcon />
+          </motion.svg>
+          <motion.svg
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
             className="h-full w-full"
-          />
-          <JavaIcon
+          >
+            <JavaIcon />
+          </motion.svg>
+          <motion.svg
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
-            className=" h-full w-full"
-          />
-          <CIcon
-            onMouseEnter={textEnter}
-            onMouseLeave={textLeave}
-            className="h-full w-full fill-white"
-          />
-          <PythonIcon
-            onMouseEnter={textEnter}
-            onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
             className="h-full w-full"
-          />
-          <DartIcon
+          >
+            <CIcon />
+          </motion.svg>
+          <motion.svg
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
             className="h-full w-full"
-          />
+          >
+            <PythonIcon />
+          </motion.svg>
+          <motion.svg
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
+            className="h-full w-full"
+          >
+            <DartIcon />
+          </motion.svg>
+        </div>
+        <div className="col-span-6 grid grid-cols-8 h-full">
+          <p className=" text-black hover:text-white ">HTML</p>
         </div>
         <div className=" text-2xl col-span-6">Frameworks and DB</div>
         <div className="col-span-6 grid grid-cols-8 h-full">
-          <ReactIcon
+          <motion.svg
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
             className="h-full w-full"
-          />
-          <TailwindIcon
+          >
+            <ReactIcon />
+          </motion.svg>
+          <motion.svg
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
             className="h-full w-full"
-          />
-          <NodeIcon
+          >
+            <TailwindIcon />
+          </motion.svg>
+          <motion.svg
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
             className="h-full w-full"
-          />
-          <DjangoIcon
+          >
+            <NodeIcon />
+          </motion.svg>
+          <motion.svg
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
             className="h-full w-full fill-white"
-          />
-          <FlutterIcon
+          >
+            <DjangoIcon />
+          </motion.svg>
+          <motion.svg
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
             className="h-full w-full"
-          />
+          >
+            <FlutterIcon />
+          </motion.svg>
           <DjangoIcon className="h-full w-full" />
-          <MySQLIcon
+          <motion.svg
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
             className="h-full w-full"
-          />
-          <MongoDBIcon
+          >
+            <MySQLIcon />
+          </motion.svg>
+          <motion.svg
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
             className="h-full w-full"
-          />
+          >
+            <MongoDBIcon />
+          </motion.svg>
         </div>
       </div>
       <hr class=" my-32 h-0.5 border-t-0 bg-white opacity-100 mx-[20%] pulse-divider" />
       <hr class=" my-32 h-0.5 border-t-0 bg-white opacity-100 mx-[30%] pulse-divider2 " />
       <hr class=" my-32 h-0.5 border-t-0 bg-white opacity-100 mx-[40%] pulse-divider3" />
+      <div className=" text-2xl text-white text-center">Projects</div>
+      <div className="mx-[20%] my-8 bg-zinc-900  rounded-md">
+        {" "}
+        <div className="p-4">
+          <div className=" text-2xl text-white mb-2">Weather Website</div>
+          <img className=" rounded" src="/weather.jpg" alt="weather"></img>{" "}
+          <div className=" text-white text-xl my-4">
+            Fully functional full-stack website fetching weather data from an
+            API, and performing visualization and analysis of the relationship
+            between UV index and temperature.
+          </div>
+          <div className="flex flex-row my-2">
+            <StackButton text="Django" />
+            <StackButton text="MySql" />
+            <StackButton text="Tailwind" />
+            <StackButton text="React" />
+            <StackButton text="AWS EC2" />
+          </div>
+          <div className="flex justify-end ">
+            <DemoButton
+              text="Go Live"
+              url="http://ec2-15-222-246-250.ca-central-1.compute.amazonaws.com/"
+            />
+            <DemoButton
+              text="Github"
+              url="https://github.com/YaleDevUni/data_analyzer"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="mx-[20%] my-8 bg-zinc-900  rounded-md">
+        {" "}
+        <div className="p-4">
+          <div className=" text-2xl text-white mb-2">Porfolio Website</div>
+          <img
+            className=" rounded"
+            src="/portfolio.jpg"
+            alt="portfolio"
+          ></img>{" "}
+          <div className=" text-white text-xl my-4">
+            User interacitve portfolio website built with React and Tailwind.
+            Monted framer motion for animation effect.
+          </div>
+          <div className="flex flex-row my-2">
+            <StackButton text="React" />
+            <StackButton text="Tailwind" />
+            <StackButton text="Framer Motion" />
+          </div>
+          <div className="flex justify-end ">
+            <DemoButton
+              text="Github"
+              url="https://github.com/YaleDevUni/portfolio"
+            />
+          </div>
+        </div>
+      </div>
       {/* Apply Effect on cursor */}
       <motion.div
         className="cursor"
@@ -245,7 +428,7 @@ function App() {
           duration: 0,
           scale: { duration: 0.2 },
         }}
-      />
+      ></motion.div>
     </div>
   );
 }
