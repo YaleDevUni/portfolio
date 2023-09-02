@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import StackButton from "./components/stack_button";
 import DemoButton from "./components/demo_button";
+import Footer from "./components/footer";
 import { ReactComponent as DjangoIcon } from "./logos/Django.svg";
 import { ReactComponent as ReactIcon } from "./logos/React_logo.svg";
 import { ReactComponent as PythonIcon } from "./logos/Python_logo.svg";
@@ -409,6 +410,7 @@ function App() {
             <StackButton text="React" />
             <StackButton text="Tailwind" />
             <StackButton text="Framer Motion" />
+            <StackButton text="Netflify" />
           </div>
           <div className="flex justify-end ">
             <DemoButton
@@ -418,6 +420,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Footer />
       {/* Apply Effect on cursor */}
       <motion.div
         className="cursor"
