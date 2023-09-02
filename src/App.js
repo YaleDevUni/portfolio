@@ -115,10 +115,11 @@ function App() {
   return (
     <div className="App  md:cursor-none">
       <nav className="grid grid-cols-10 grid-rows-1 my-4 mb-10 font-bold ">
-        <div className=" col-span-8">
+        <div className=" col-span-6 md:col-span-8">
           <div className=" text-left mx-4">Yeil's Portfolios</div>
         </div>
         <button
+          className=" col-span-2 md:col-span-1"
           onClick={() => {
             window.open("https://github.com/YaleDevUni");
           }}
@@ -364,7 +365,7 @@ function App() {
       <hr class=" my-12 h-0.5 border-t-0 bg-white opacity-100 mx-[30%] pulse-divider2 md:my-32 " />
       <hr class=" my-12 h-0.5 border-t-0 bg-white opacity-100 mx-[40%] pulse-divider3 md:my-32" />
       <div className=" text-2xl text-white text-center">Projects</div>
-      <div className="mx-[20%] my-8 bg-zinc-900  rounded-md">
+      <div className="mx-[5%] my-8 bg-zinc-900  rounded-md md:mx-[20%]">
         {" "}
         <div className="p-4">
           <div className=" text-2xl text-white mb-2">Weather Website</div>
@@ -393,7 +394,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="mx-[20%] my-8 bg-zinc-900  rounded-md">
+      <div className="mx-[5%] my-8 bg-zinc-900  rounded-md md:mx-[20%]">
         {" "}
         <div className="p-4">
           <div className=" text-2xl text-white mb-2">Porfolio Website</div>

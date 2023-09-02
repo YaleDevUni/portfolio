@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
     return (
-        <div className="flex flex-col justify-center bg-zinc-900 text-white mx-[20%]">
+        <div className="flex flex-col justify-center bg-zinc-900 text-white mx-[5%] md:mx-[20%]">
             <div className="flex flex-col mb-4 justify-center text-center my-6">
                 <div className="opacity-60  ">Contact</div>
                 {/* <div className="flex flex-row items-center justify-center"> */}
