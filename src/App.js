@@ -128,7 +128,7 @@ function App() {
         </button>
         <button
           onClick={() => {
-            window.open("https://pdfhost.io/v/md1o7UXF4_Resume_AxiomZen");
+            window.open("https://pdfhost.io/v/gHg1ee8pj_ResumeGeneral2");
           }}
         >
           Resume
