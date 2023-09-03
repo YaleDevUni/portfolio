@@ -411,7 +411,7 @@ function App() {
             <StackButton text="React" />
             <StackButton text="Tailwind" />
             <StackButton text="Framer Motion" />
-            <StackButton text="Netflify" />
+            <StackButton text="Netlify" />
           </div>
           <div className="flex justify-end ">
             <DemoButton
