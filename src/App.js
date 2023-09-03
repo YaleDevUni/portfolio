@@ -43,7 +43,7 @@ function App() {
 
   // Check if the window size is reduced (you can define your own threshold)
   const isReduced = windowWidth < 768;
-  console.log(windowWidth);
+
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0,
