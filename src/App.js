@@ -383,10 +383,7 @@ function App() {
             <StackButton text="SSR" />
           </div>
           <div className="flex justify-end ">
-            <DemoButton
-              text="Go Live"
-              url="http://ec2-15-222-246-250.ca-central-1.compute.amazonaws.com/"
-            />
+            <DemoButton text="Go Live" url="https://weather.yesyeil.ca" />
             <DemoButton
               text="Github"
               url="https://github.com/YaleDevUni/data_analyzer"
