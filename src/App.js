@@ -270,7 +270,7 @@ function App() {
             <DartIcon />
           </motion.svg>
         </div>
-        <div className="col-span-6 grid grid-cols-8 h-full">
+        <div className="col-span-6 grid grid-cols-8 h-full text-xs md:text-base">
           <p className=" text-white ">HTML</p>
           <p className=" text-white ">CSS</p>
           <p className=" text-white ">Javascript</p>
@@ -381,7 +381,7 @@ function App() {
             <MongoDBIcon />
           </motion.svg>
         </div>
-        <div className="col-span-6 grid grid-cols-8 h-full">
+        <div className="col-span-6 grid grid-cols-8 h-full  text-xs md:text-base">
           <p className=" text-white ">React</p>
           <p className=" text-white ">Tailwind</p>
           <p className=" text-white ">Node</p>
