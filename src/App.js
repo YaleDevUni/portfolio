@@ -19,6 +19,7 @@ import { ReactComponent as FlutterIcon } from "./logos/Flutter_logo.svg";
 import { ReactComponent as NodeIcon } from "./logos/Node_logo.svg";
 import { ReactComponent as MySQLIcon } from "./logos/MySql_logo.svg";
 import { ReactComponent as MongoDBIcon } from "./logos/MongoDB_logo.svg";
+import { ReactComponent as NextIcon } from "./logos/Next.svg";
 import { ReactComponent as WebGlIcon } from "./logos/WebGl_logo.svg";
 
 function App() {
@@ -270,7 +271,14 @@ function App() {
           </motion.svg>
         </div>
         <div className="col-span-6 grid grid-cols-8 h-full">
-          <p className=" text-black hover:text-white ">HTML</p>
+          <p className=" text-white ">HTML</p>
+          <p className=" text-white ">CSS</p>
+          <p className=" text-white ">Javascript</p>
+          <p className=" text-white ">Typescript</p>
+          <p className=" text-white ">Java</p>
+          <p className=" text-white ">C</p>
+          <p className=" text-white ">Python</p>
+          <p className=" text-white ">Dart</p>
         </div>
         <div className=" text-2xl col-span-6">Frameworks and DB</div>
         <div className="col-span-6 grid grid-cols-8 h-full">
@@ -334,7 +342,20 @@ function App() {
           >
             <FlutterIcon />
           </motion.svg>
-          <DjangoIcon className="h-full w-full" />
+
+          <motion.svg
+            onMouseEnter={textEnter}
+            onMouseLeave={textLeave}
+            style={{
+              // Set rotation based on cursor position
+              rotateY: `${rotationDegreeY}deg`,
+              rotateX: `${rotationDegreeX}deg`,
+            }}
+            className="h-full w-full fill-white"
+          >
+            <NextIcon />
+          </motion.svg>
+
           <motion.svg
             onMouseEnter={textEnter}
             onMouseLeave={textLeave}
@@ -359,6 +380,16 @@ function App() {
           >
             <MongoDBIcon />
           </motion.svg>
+        </div>
+        <div className="col-span-6 grid grid-cols-8 h-full">
+          <p className=" text-white ">React</p>
+          <p className=" text-white ">Tailwind</p>
+          <p className=" text-white ">Node</p>
+          <p className=" text-white ">Django</p>
+          <p className=" text-white ">Flutter</p>
+          <p className=" text-white ">Next</p>
+          <p className=" text-white ">MySQL</p>
+          <p className=" text-white ">MongoDB</p>
         </div>
       </div>
       <hr class=" my-12  h-0.5 border-t-0 bg-white opacity-100 mx-[20%] pulse-divider md:my-32" />
@@ -387,6 +418,35 @@ function App() {
             <DemoButton
               text="Github"
               url="https://github.com/YaleDevUni/data_analyzer"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="mx-[5%] my-8 bg-zinc-900  rounded-md md:mx-[20%]">
+        {" "}
+        <div className="p-4">
+          <div className=" text-2xl text-white mb-2">
+            Web Based Image Viewer
+          </div>
+          <img className=" rounded" src="/viewer.png" alt="weather"></img>{" "}
+          <div className=" text-white text-xl my-4">
+            A fully client-side web application designed for efficient image
+            exploration. With current support for WebP format within zip files,
+            this viewer, built on Next.js, delivers a seamless and responsive
+            experience. Stay tuned for future updates as I plan to enhance
+            functionality, adding support for additional file formats to broaden
+            your image-viewing possibilities.
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <StackButton text="Next.js" />
+            <StackButton text="React.js" />
+            <StackButton text="Tailwind" />
+          </div>
+          <div className="flex justify-end ">
+            <DemoButton text="Go Live" url="https://viewer.yesyeil.ca" />
+            <DemoButton
+              text="Github"
+              url="https://github.com/YaleDevUni/comics-web-reader"
             />
           </div>
         </div>
@@ -431,7 +491,7 @@ function App() {
             duration: 0,
             scale: { duration: 0.2 },
           }}
-        />
+        ></motion.div>
       )}
     </div>
   );
