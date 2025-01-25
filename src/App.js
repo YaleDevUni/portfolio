@@ -396,6 +396,42 @@ function App() {
       <hr class=" my-12 h-0.5 border-t-0 bg-white opacity-100 mx-[30%] pulse-divider2 md:my-32 " />
       <hr class=" my-12 h-0.5 border-t-0 bg-white opacity-100 mx-[40%] pulse-divider3 md:my-32" />
       <div className=" text-2xl text-white text-center">Projects</div>
+      <div className="mx-[5%] my-8 bg-zinc-900 rounded-md md:mx-[20%]">
+        <div className="p-4">
+          <div className="text-2xl text-white mb-2">Resume Manager for HR</div>
+          <img className="rounded" src="/resume.png" alt="resume-manager"></img>
+          <div className="text-white text-xl my-4">
+            A comprehensive web application designed to streamline technical
+            recruitment processes. This enterprise-grade solution enables HR
+            professionals to efficiently manage large volumes of resumes with
+            features including bulk uploads of up to 100 documents, intelligent
+            filtering based on skills and ratings, and integrated PDF viewing
+            with annotation capabilities. Built with security and scalability in
+            mind, it offers recruitment campaign management and detailed
+            candidate tracking, making it an essential tool for modern technical
+            hiring workflows.
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <StackButton text="React.js" />
+            <StackButton text="Redux" />
+            <StackButton text="Tailwind" />
+            <StackButton text="Node.js" />
+            <StackButton text="Express.js" />
+            <StackButton text="MongoDB" />
+            <StackButton text="Passport.js" />
+            <StackButton text="Docker" />
+            <StackButton text="AWS EC2" />
+            <StackButton text="AWS Route 53" />
+          </div>
+          <div className="flex justify-end">
+            <DemoButton text="Go Live" url="https://resume.yesyeil.ca/" />
+            <DemoButton
+              text="Github"
+              url="https://github.com/YaleDevUni/resume-manager"
+            />
+          </div>
+        </div>
+      </div>
       <div className="mx-[5%] my-8 bg-zinc-900  rounded-md md:mx-[20%]">
         {" "}
         <div className="p-4">
@@ -404,7 +440,8 @@ function App() {
           <div className=" text-white text-xl my-4">
             Fully functional full-stack website fetching weather data from an
             API, and performing visualization and analysis of the relationship
-            between UV index and temperature.
+            between UV index and temperature. Out of budget... Currently not on
+            live.
           </div>
           <div className="flex flex-wrap gap-2">
             <StackButton text="Django" />
@@ -414,7 +451,7 @@ function App() {
             <StackButton text="SSR" />
           </div>
           <div className="flex justify-end ">
-            <DemoButton text="Go Live" url="https://weather.yesyeil.ca" />
+            {/* <DemoButton text="Go Live" url="https://weather.yesyeil.ca" /> */}
             <DemoButton
               text="Github"
               url="https://github.com/YaleDevUni/data_analyzer"
