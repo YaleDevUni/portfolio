@@ -129,7 +129,7 @@ function App() {
         </button>
         <button
           onClick={() => {
-            window.open("https://pdfhost.io/v/gHg1ee8pj_ResumeGeneral2");
+            window.open("https://yeilparkresume.tiiny.site/");
           }}
         >
           Resume
